@@ -1,0 +1,24 @@
+# Ignore data files
+*.xlsx
+*.json
+
+# Ignore model files
+*.h5
+*.pkl
+
+# Ignore notebooks checkpoints
+.ipynb_checkpoints/
+
+# Ignore virtual environment
+venv/
+
+# Ignore logs
+*.log
+
+# Ignore cache and temporary files
+__pycache__/
+*.pyc
+*.swp
+*.swo
+*.cache/
+*.egg-info/
