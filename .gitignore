@@ -22,3 +22,6 @@ __pycache__/
 *.swo
 *.cache/
 *.egg-info/
+
+# Ignore SECRETS file
+SECRETS.py
