@@ -37,7 +37,6 @@ def is_high_season(date):
         return 'temporada alta'
     return 'temporada baja'
 
-
 def get_sql_type(dtype):
     """Returns a string with the type in sql syntaxis"""
     
