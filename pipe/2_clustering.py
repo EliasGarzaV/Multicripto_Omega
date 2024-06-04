@@ -21,7 +21,7 @@ today = run_data["timestamp"]
 run_uuid = run_data["uuid"]
 
 #%% Reading transformed Data and defining parameters
-df = pd.read_parquet(f'..\data\Transformed_df_{today}_{run_uuid}.parquet')
+df = pd.read_parquet(f'..\data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
 
 columns_2_use = ['Tipo_Habitacion', 'Clasificacion_tipo_habitacion', 'Paquete', 'Canal', 'Estatus_res', 'Capacidad_hotel', 'Numero_personas', 'Numero_adultos', 'Numero_noches', 'IngresoMto', 'Tipo_temporada']
 df_selected = df[columns_2_use]
@@ -178,8 +178,9 @@ for model, labels_result in labels.items():
     davies_bouldin_dict[model] = davies_bouldin_score(data_transformed.toarray(), labels_result)
 
 best_model = min(davies_bouldin_dict, key=davies_bouldin_dict.get)
+best_model = 'Mixture'
 
-#%%Add label to original df
+#%%Add label to original df and saving
 df['CLUSTER'] = labels[best_model]
 
 df.to_parquet(f'..\data\Clustered_Data\Clustered_df_{today}_{run_uuid}.parquet')

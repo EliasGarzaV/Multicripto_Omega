@@ -49,3 +49,5 @@ df['Diferencia_reservacion_llegada'] = pd.to_datetime(df['FechaLlegada']) - \
 
 #%% Saving results in file system
 df.to_parquet(f'..\data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
+
+#%%

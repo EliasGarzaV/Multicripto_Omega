@@ -1,3 +1,5 @@
+
+#%%
 import json
 import uuid
 from datetime import datetime
@@ -12,3 +14,5 @@ run_data = {
 with open(r'run_parameters.json', 'w') as f:
     json.dump(run_data, f)
 
+
+# %%
