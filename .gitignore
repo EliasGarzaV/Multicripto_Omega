@@ -28,3 +28,6 @@ SECRETS.py
 
 #Ignore parquets
 *.parquet
+
+#Ignore pickles
+*.pkl
