@@ -11,7 +11,7 @@ run_data = {
 }
 
 # Save to run_parameters file
-with open(r'run_parameters.json', 'w') as f:
+with open(r'utils\run_parameters.json', 'w') as f:
     json.dump(run_data, f)
 
 
