@@ -86,7 +86,7 @@ else:
 n_components = np.arange(1, 11)  
 bics = []
 for n in n_components:
-    gmm = mixture.GaussianMixture(n_components = n, random_state = 42)
+    gmm = mixture.GaussianMixture(n_components = n, random_state = 13)
     gmm.fit(data_dense)
     bics.append(gmm.bic(data_dense))
     
@@ -120,7 +120,7 @@ preprocessor = ColumnTransformer([
 pipeline_final = Pipeline([
     ('preprocessor', preprocessor),
     ('to_dense', dense_transformer), 
-    ('clusterer', mixture.GaussianMixture(n_components = knee_bic.elbow, random_state = 42))
+    ('clusterer', mixture.GaussianMixture(n_components = knee_bic.elbow, random_state = 13))
 ])
 
 pipeline_final.fit(df_selected)
