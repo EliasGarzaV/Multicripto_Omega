@@ -9,7 +9,9 @@ setup(
         'scikit-learn',
         'pandas',
         'fastparquet',
-        'pyodbc'
+        'pyodbc',
+        'fastparquet',
+        'pyarrow'
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
