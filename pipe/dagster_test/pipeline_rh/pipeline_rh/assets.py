@@ -71,7 +71,7 @@ def etl():
                                             pd.to_datetime(df['FechaRegistro'])
 
     #% Saving results in file system
-    df.to_parquet(f'..\data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
+    df.to_parquet(f'data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
 
     return "Success"
     
@@ -86,7 +86,7 @@ def clustering():
     run_uuid = run_data["uuid"]
 
     #% Reading transformed Data and defining parameters
-    df = pd.read_parquet(f'..\data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
+    df = pd.read_parquet(f'data\Base_Data\Transformed_df_{today}_{run_uuid}.parquet')
 
     columns_2_use = ['Tipo_Habitacion', 'Clasificacion_tipo_habitacion', 'Paquete', 'Canal', 'Estatus_res', 'Capacidad_hotel', 'Numero_personas', 'Numero_adultos', 'Numero_noches', 'IngresoMto', 'Tipo_temporada']
     df_selected = df[columns_2_use]
@@ -248,12 +248,12 @@ def clustering():
     #%Add label to original df and saving
     df['CLUSTER'] = labels[best_model]
 
-    df.to_parquet(f'..\data\Clustered_Data\Clustered_df_{today}_{run_uuid}.parquet')
+    df.to_parquet(f'data\Clustered_Data\Clustered_df_{today}_{run_uuid}.parquet')
 
     #saving the best model
-    model_filename = f'..\\models\\final_model_{best_model}_{today}_{run_uuid}.pkl'
-    with open(model_filename, 'wb') as file:
-        pickle.dump(models[best_model], file)
+    # model_filename = f'models\\final_model_{best_model}_{today}_{run_uuid}.pkl'
+    # with open(model_filename, 'wb') as file:
+    #     pickle.dump(models[best_model], file)
    
 @asset(deps=[clustering], description='Add OcupationPct to the data and loads it to the Azure DB.')
 def saving():
@@ -268,7 +268,7 @@ def saving():
 
     #%Loading Clustering results
 
-    df = pd.read_parquet(f'..\data\Clustered_Data\Clustered_df_{today}_{run_uuid}.parquet')
+    df = pd.read_parquet(f'data\Clustered_Data\Clustered_df_{today}_{run_uuid}.parquet')
 
     #%Creating Ocupation Dataframe
     df_ocupation = df[['FechaLlegada', 'FechaSalida']].copy()
@@ -304,7 +304,7 @@ def saving():
                                                                             occupied_rooms_df), axis=1)
     #%Saving backup table and writing to Database
 
-    df.to_parquet(f'..\data\Historic_Data\Historic_df_{today}_{run_uuid}.parquet')
+    df.to_parquet(f'data\Historic_Data\Historic_df_{today}_{run_uuid}.parquet')
 
     conn_str = (
         f"DRIVER=ODBC Driver 17 for SQL Server;"
