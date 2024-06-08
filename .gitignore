@@ -32,7 +32,7 @@ SECRETS.py
 #Ignore pickles
 *.pkl
 
+#ignore venm for pipeline
 RetoHoteles
 
 *.csv
-
