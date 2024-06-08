@@ -31,3 +31,8 @@ SECRETS.py
 
 #Ignore pickles
 *.pkl
+
+RetoHoteles
+
+*.csv
+
