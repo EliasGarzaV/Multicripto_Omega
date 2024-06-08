@@ -34,3 +34,5 @@ SECRETS.py
 
 #ignore venm for pipeline
 RetoHoteles
+
+*.csv
