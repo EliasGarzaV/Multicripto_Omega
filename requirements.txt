@@ -1,0 +1,16 @@
+#Pipeline Orchestration
+dagster==1.7.9
+dagit==1.7.9
+dagster-cloud==1.7.9
+
+#Data Wrangling
+pandas==2.2.2
+pyodbc==5.1.0
+fastparquet
+pyarrow==16.1.0
+
+#Machine Learning
+scikit-learn==1.5.0
+gower==0.1.2
+kneed==0.8.5
+pickleshare==0.7.5
