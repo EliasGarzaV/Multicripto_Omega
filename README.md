@@ -48,7 +48,7 @@ Tenemos 4 scripts importantes y una carpeta [utils](pipe/utils) que hacen lo sig
 - [0_run_parameters](pipe/0_run_parameters.py): Definimos metaparamentros de la ejecucion como el tiempo de inicio y un uuid.
 - [1_etl.py](pipe/1_etl.py): Nos conectamos a la base de datos, hacemos la query y limpiamos los datos. Guardamos esto por persistencia en la carpeta de `data/Base_Data`.
 - [2_clustering.py](pipe/2_clustering.py): Se prueban varios algoritmos distintos de clustering y se define el mejor. Luego guardamos el modelo resultante en `models` y los resultados del clustering en `data/Clustered_Data`.
-- [3_saving.py](pipe/saving.py): Agregamos a la información la data de ocupación. Nos conectamos de nuevo a la base de datos y actualizamos la tabla de resultados con el dataframe final. Tambien guardamos un backup en `data/Historic_Data`.
+- [3_saving.py](pipe/3_saving.py): Agregamos a la información la data de ocupación. Nos conectamos de nuevo a la base de datos y actualizamos la tabla de resultados con el dataframe final. Tambien guardamos un backup en `data/Historic_Data`.
   
 
 ## Implementacion con Dagster
